@@ -20,7 +20,7 @@
   "name": "@jbtje/vite-vue3pdf",
   "peerDependencies": {},
   "scripts": {},
-  "version": "0.0.1",
+  "version": "0.1.0",
   "devDependencies": {},
   "repository": {
     "type": "git",

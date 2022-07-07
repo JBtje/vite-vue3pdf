@@ -181,9 +181,10 @@ export default function( PDFJS ) {
                 }
 
                 canceling = true;
-                pdfRender.cancel().catch( function( err ) {
-                    emit( 'error', err );
-                } );
+                // todo: Cancel does not exist in 2.5.207, uncomment when @bundled-es-modules/pdfjs-dist is updated.
+                // pdfRender.cancel().catch( function( err ) {
+                //     emit( 'error', err );
+                // } );
                 return;
             }
 
