@@ -1,4 +1,4 @@
-# vue3pdf
+# Vite-vue3pdf
 [![Latest Version on NPM](https://img.shields.io/npm/v/@jbtje/vite-vue3pdf.svg?style=flat-square)](https://npmjs.com/package/@jbtje/vite-vue3pdf)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![npm](https://img.shields.io/npm/dt/@jbtje/vite-vue3pdf.svg?style=flat-square)](https://www.npmjs.com/package/@jbtje/vite-vue3pdf)
@@ -6,6 +6,8 @@
 The package contains a [Vue 3](https://vuejs.org/) component to easily display PDF files in Vite.
 
 ### Note: This project depends on [@bundled-es-modules/pdfjs-dist](https://github.com/bundled-es-modules/pdfjs-dist) which is currently quite a few versions behind pdfjs-dist 
+
+### Note: Make sure to manually copy [pdf.worker.min.js](https://github.com/bundled-es-modules/pdfjs-dist/blob/master/build/pdf.worker.min.js) to `public/pdsjs/pdf.worker.js`
 
 ## Example - basic
 ```vue
@@ -28,6 +30,10 @@ export default {
 ```bash
 npm install --save @jbtje/vite-vue3pdf
 ```
+
+#### pdf.worker.js
+Copy [pdf.worker.min.js](https://github.com/bundled-es-modules/pdfjs-dist/blob/master/build/pdf.worker.min.js) to `public/pdsjs/pdf.worker.js`. Vite-Vue3Pdf will load worker.js from https://yourdomain.com/pdsjs/pdf.worker.js
+
 
 ## Demo
 
