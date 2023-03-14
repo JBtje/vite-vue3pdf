@@ -3,7 +3,6 @@ import {h}          from 'vue';
 
 export default function( pdfjsWrapper ) {
     var createLoadingTask = pdfjsWrapper.createLoadingTask;
-    var PDFJSWrapper      = pdfjsWrapper.PDFJSWrapper;
 
     return {
         createLoadingTask: createLoadingTask,
@@ -39,6 +38,10 @@ export default function( pdfjsWrapper ) {
             },
             rotate: {
                 type: Number,
+            },
+            workerSrc: {
+                type: String,
+                default: '/pdfjs/pdf.worker.js',
             },
         },
 
@@ -89,6 +92,8 @@ export default function( pdfjsWrapper ) {
 
         // doc: mounted hook is not called during server-side rendering.
         mounted() {
+            pdfjsWrapper.setWorkerSrc( this.workerSrc );
+            const PDFJSWrapper = pdfjsWrapper.PDFJSWrapper;
             this.pdf = new PDFJSWrapper( this.$refs.canvas, this.$refs.annotationLayer, this.$emit, this.page, this.rotate );
             this.pdf.loadDocument( this.src );
         },
