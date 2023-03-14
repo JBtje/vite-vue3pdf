@@ -7,7 +7,7 @@ The package contains a [Vue 3](https://vuejs.org/) component to easily display P
 
 ### Note: This project depends on [@bundled-es-modules/pdfjs-dist](https://github.com/bundled-es-modules/pdfjs-dist) which is currently quite a few versions behind pdfjs-dist 
 
-### Note: Make sure to manually copy [pdf.worker.min.js](https://github.com/bundled-es-modules/pdfjs-dist/blob/master/build/pdf.worker.min.js) to `public/pdsjs/pdf.worker.js`
+### Note: Make sure to manually copy [pdf.worker.min.js](https://github.com/bundled-es-modules/pdfjs-dist/blob/master/build/pdf.worker.min.js) to `public/pdfjs/pdf.worker.js` (default) or another location set with worker-src prop
 
 ## Example - basic
 ```vue
@@ -56,6 +56,10 @@ The page number to display.
 
 #### :rotate <sup>Number - default: 0<sup>
 The page rotation in degrees, only multiple of 90 are valid.
+
+#### :worker-src <sup>String - default: '/pdfjs/pdf.worker.js'<sup>
+The pdf worker location, relative to '/public' directory.
+
 
 ### Events
 

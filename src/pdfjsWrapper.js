@@ -4,6 +4,10 @@ var pendingOperation = Promise.resolve();
 
 export default function( PDFJS ) {
 
+    function setWorkerSrc( workerSrc ) {
+        PDFJS.GlobalWorkerOptions.workerSrc = workerSrc;
+    }
+
     function isPDFDocumentLoadingTask( obj ) {
         return typeof (obj) === 'object' && obj !== null && obj.__PDFDocumentLoadingTask === true;
     }
@@ -359,6 +363,7 @@ export default function( PDFJS ) {
 
 
     return {
+        setWorkerSrc: setWorkerSrc,
         createLoadingTask: createLoadingTask,
         PDFJSWrapper:      PDFJSWrapper,
     };
