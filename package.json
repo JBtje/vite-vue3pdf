@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "@bundled-es-modules/pdfjs-dist": "2.5.207-rc1",
+    "@bundled-es-modules/pdfjs-dist": "2.16.105-alpha.2",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
-    "loader-utils": "^2.0.0",
+    "loader-utils": "^2.0.4",
     "raw-loader": "^4.0.2",
     "vue3-resize-sensor": "^2.0.2"
   },
@@ -20,7 +20,7 @@
   "name": "@jbtje/vite-vue3pdf",
   "peerDependencies": {},
   "scripts": {},
-  "version": "0.1.0",
+  "version": "0.2.0",
   "devDependencies": {},
   "repository": {
     "type": "git",

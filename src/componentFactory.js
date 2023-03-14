@@ -1,8 +1,8 @@
-import resizeSensor from 'vue3-resize-sensor';
-import {h}          from 'vue';
+import resizeSensor from 'vue3-resize-sensor'
+import {h}          from 'vue'
 
 export default function( pdfjsWrapper ) {
-    var createLoadingTask = pdfjsWrapper.createLoadingTask;
+    var createLoadingTask = pdfjsWrapper.createLoadingTask
 
     return {
         createLoadingTask: createLoadingTask,
@@ -21,26 +21,26 @@ export default function( pdfjsWrapper ) {
                     ref:   'annotationLayer',
                 } ),
                 h( resizeSensor, {
-                    initial: true,
+                    initial:  true,
                     onResize: this.resize,
                 } ),
-            ] );
+            ] )
         },
 
         props: {
-            src:    {
+            src:       {
                 type:    [String, Object, Uint8Array],
                 default: '',
             },
-            page:   {
+            page:      {
                 type:    Number,
                 default: 1,
             },
-            rotate: {
+            rotate:    {
                 type: Number,
             },
             workerSrc: {
-                type: String,
+                type:    String,
                 default: '/pdfjs/pdf.worker.js',
             },
         },
@@ -58,13 +58,13 @@ export default function( pdfjsWrapper ) {
 
         watch: {
             src:    function() {
-                this.pdf.loadDocument( this.src );
+                this.pdf.loadDocument( this.src )
             },
             page:   function() {
-                this.pdf.loadPage( this.page, this.rotate );
+                this.pdf.loadPage( this.page, this.rotate )
             },
             rotate: function() {
-                this.pdf.renderPage( this.rotate );
+                this.pdf.renderPage( this.rotate )
             },
         },
 
@@ -73,34 +73,35 @@ export default function( pdfjsWrapper ) {
 
                 // check if the element is attached to the dom tree || resizeSensor being destroyed
                 if( this.$el.parentNode === null || (size.width === 0 && size.height === 0) ) {
-                    return;
+                    return
                 }
 
                 // on IE10- canvas height must be set
-                this.$refs.canvas.style.height = this.$refs.canvas.offsetWidth * (this.$refs.canvas.height / this.$refs.canvas.width) + 'px';
+                this.$refs.canvas.style.height = this.$refs.canvas.offsetWidth * (this.$refs.canvas.height / this.$refs.canvas.width) + 'px'
                 // update the page when the resolution is too poor
-                var resolutionScale            = this.pdf.getResolutionScale();
+                var resolutionScale            = this.pdf.getResolutionScale()
 
                 if( resolutionScale < 0.85 || resolutionScale > 1.15 ) {
-                    this.pdf.renderPage( this.rotate );
+                    this.pdf.renderPage( this.rotate )
                 }
             },
             print:  function( dpi, pageList ) {
-                this.pdf.printPage( dpi, pageList );
+                this.pdf.printPage( dpi, pageList )
             },
         },
 
         // doc: mounted hook is not called during server-side rendering.
         mounted() {
-            pdfjsWrapper.setWorkerSrc( this.workerSrc );
-            const PDFJSWrapper = pdfjsWrapper.PDFJSWrapper;
-            this.pdf = new PDFJSWrapper( this.$refs.canvas, this.$refs.annotationLayer, this.$emit, this.page, this.rotate );
-            this.pdf.loadDocument( this.src );
+            pdfjsWrapper.setWorkerSrc( this.workerSrc )
+            const PDFJSWrapper = pdfjsWrapper.PDFJSWrapper
+
+            this.pdf = new PDFJSWrapper( this.$refs.canvas, this.$refs.annotationLayer, this.$emit, this.page, this.rotate )
+            this.pdf.loadDocument( this.src )
         },
 
         // doc: destroyed hook is not called during server-side rendering.
         unmounted() {
-            this.pdf.destroy();
+            this.pdf.destroy()
         },
-    };
+    }
 }
