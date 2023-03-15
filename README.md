@@ -5,9 +5,14 @@
 
 The package contains a [Vue 3](https://vuejs.org/) component to easily display PDF files in Vite.
 
-### Note: This project depends on [@bundled-es-modules/pdfjs-dist](https://github.com/bundled-es-modules/pdfjs-dist) which is currently quite a few versions behind pdfjs-dist 
+#### Note: This project depends on [@bundled-es-modules/pdfjs-dist](https://github.com/bundled-es-modules/pdfjs-dist) which is currently quite a few versions behind pdfjs-dist 
 
-### Note: Make sure to manually copy [pdf.worker.min.js](https://github.com/bundled-es-modules/pdfjs-dist/blob/master/build/pdf.worker.min.js) to `public/pdfjs/pdf.worker.js` (default) or another location set with worker-src prop
+#### Note: Make sure to manually copy [pdf.worker.min.js](https://github.com/JBtje/vite-vue3pdf-demo/raw/master/public/pdfjs/pdf.worker.js) to `public/pdfjs/pdf.worker.js` (default) or another location set with worker-src prop. The worker version needs to match the version in package.json
+
+| This package | pdf.worker.js                                                                                                                                |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.1.0        | [2.5.207-rc1](https://raw.githubusercontent.com/JBtje/vite-vue3pdf-demo/2927a7673ef83e063d05105a78fb1feb2fb95c4c/public/pdfjs/pdf.worker.js) |
+| 0.2.0        | [2.16.105-alpha.2](https://raw.githubusercontent.com/JBtje/vite-vue3pdf-demo/master/public/pdfjs/pdf.worker.js)                              |
 
 ## Example - basic
 ```vue
