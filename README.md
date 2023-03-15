@@ -37,7 +37,7 @@ npm install --save @jbtje/vite-vue3pdf
 ```
 
 #### pdf.worker.js
-Copy [pdf.worker.min.js](https://github.com/bundled-es-modules/pdfjs-dist/blob/master/build/pdf.worker.min.js) to `public/pdsjs/pdf.worker.js`. Vite-Vue3Pdf will load pdf.worker.js from https://yourdomain.com/pdsjs/pdf.worker.js
+Copy pdf.worker.min.js to `public/pdsjs/pdf.worker.js`. Vite-Vue3Pdf will load pdf.worker.js from https://yourdomain.com/pdsjs/pdf.worker.js by default. You can change this path via `:worker-src`
 
 
 ## Demo
