@@ -5,6 +5,8 @@ export default function( pdfjsWrapper ) {
     var createLoadingTask = pdfjsWrapper.createLoadingTask
 
     return {
+        setWorkerSrc: pdfjsWrapper.setWorkerSrc,
+        
         createLoadingTask: createLoadingTask,
 
         render() {
